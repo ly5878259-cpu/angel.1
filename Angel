@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angel Bypasser - Invite</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  font-family:'Segoe UI',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  background:radial-gradient(circle at center,#dfe6ff 0%,#7f8cff 40%,#1a1a40 100%);
+  color:white;
+}
+
+/* glowing background */
+.glow{
+  position:absolute;
+  width:750px;
+  height:750px;
+  background:radial-gradient(circle,rgba(255,255,255,0.6),transparent 70%);
+  animation:pulse 5s infinite ease-in-out;
+  z-index:0;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);opacity:0.6;}
+  50%{transform:scale(1.25);opacity:0.95;}
+  100%{transform:scale(1);opacity:0.6;}
+}
+
+/* angel image */
+.angel{
+  width:360px;
+  animation:float 6s ease-in-out infinite;
+  filter:drop-shadow(0 0 40px rgba(255,255,255,0.9));
+  z-index:1;
+}
+
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-25px);}
+  100%{transform:translateY(0px);}
+}
+
+/* shine effect */
+.shine{
+  position:absolute;
+  width:150%;
+  height:200%;
+  background:linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255,255,255,0.4) 50%,
+    transparent 60%
+  );
+  animation:shineMove 4s infinite;
+  z-index:2;
+}
+
+@keyframes shineMove{
+  0%{transform:translateX(-100%) rotate(25deg);}
+  100%{transform:translateX(100%) rotate(25deg);}
+}
+
+.title{
+  font-size:3rem;
+  margin-top:20px;
+  text-shadow:0 0 20px white;
+  z-index:1;
+}
+
+.invite-btn{
+  margin-top:30px;
+  padding:15px 45px;
+  font-size:18px;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(45deg,#ffffff,#9aaaff);
+  color:#1a1a40;
+  cursor:pointer;
+  transition:0.3s ease;
+  z-index:1;
+  box-shadow:0 0 20px rgba(255,255,255,0.7);
+}
+
+.invite-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 60px white;
+}
+
+/* floating particles */
+.particle{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:white;
+  border-radius:50%;
+  opacity:0.7;
+  animation:moveUp linear infinite;
+}
+
+@keyframes moveUp{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<div style="position:relative;">
+  <img 
+    src="https://cdn.discordapp.com/attachments/1475714943033802906/1476164609319768094/5C7558E7-2E1A-4F6B-9F19-464672F9D6D7.png" 
+    class="angel">
+  <div class="shine"></div>
+</div>
+
+<div class="title">Angel Bypasser</div>
+
+<button class="invite-btn" onclick="inviteBot()">Invite Now</button>
+
+<script>
+function inviteBot(){
+  window.location.href="https://discord.com/oauth2/authorize?client_id=1472893505172148308&permissions=6826148290074688&integration_type=0&scope=bot";
+}
+
+// generate particles
+for(let i=0;i<90;i++){
+  let p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(Math.random()*5+5)+"s";
+  p.style.opacity=Math.random();
+  document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
